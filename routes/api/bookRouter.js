@@ -7,6 +7,8 @@ const cors = require('../cors');
 const Books=require('../../models/books');
 bookRouter.use(bodyParser.json());
 
+console.log("bookrouter");
+
 bookRouter.route('/')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
 .get(cors.corsWithOptions,(req,res,next) => {
@@ -20,7 +22,9 @@ bookRouter.route('/')
     .catch((err)=>(next(err)))
 })
 .post(cors.corsWithOptions,authenticate.verifyUser,authenticate.verifyAdmin,(req, res, next) => {
+    console.log("hello");
     Books.create(req.body)
+    
     .then((book)=>{
         res.statusCode=200;
         res.setHeader('Content-Type','application/json');

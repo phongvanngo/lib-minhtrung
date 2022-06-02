@@ -153,14 +153,14 @@ class AddBook extends Component {
                             <Row className="form-group">
                                 <Col>
                                     <Label htmlFor="cat">Thể loại</Label>
-                                    <Control.select defaultValue="Ngôn tình" model=".cat" id="cat" className="form-control">
-                                        <option>Ngôn tình</option> <option>Kỹ thuật</option>
-                                        <option>Công nghệ Thông tin</option> <option value="Management">Quản lý</option>
-                                        <option>Điện tử</option> <option>Vật lý</option>
-                                        <option>Hóa học</option> <option>Toán học</option>
-                                        <option>Khoa học Viễn tưởng</option> <option>Triết học</option>
-                                        <option>Ngôn ngữ</option> <option>Nghệ thuật</option>
-                                        <option>Khác</option>
+                                    <Control.select defaultValue="Romance" model=".cat" id="cat" className="form-control">
+                                        <option value="Romance">Ngôn tình</option> <option>Kỹ thuật</option>
+                                        <option value="Technology">Công nghệ Thông tin</option> <option value="Management">Quản lý</option>
+                                        <option value="Electronics">Điện tử</option> <option value="Physics">Vật lý</option>
+                                        <option value="Chemistry">Hóa học</option> <option value="Mathematics">Toán học</option>
+                                        <option value="Fiction">Khoa học Viễn tưởng</option> <option value="Philosophy">Triết học</option>
+                                        <option value="Language">Ngôn ngữ</option> <option value="Arts">Nghệ thuật</option>
+                                        <option value="Others">Khác</option>
 
                                     </Control.select>
                                 </Col>
