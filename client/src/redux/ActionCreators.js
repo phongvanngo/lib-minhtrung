@@ -36,9 +36,9 @@ export const postBook = (name, author, description, isbn, cat, floor, shelf, cop
             throw error;
       })
     .then(response => response.json())
-    .then(response => { alert('Book added successfully');
+    .then(response => { alert('Sách đã được thêm thành công!');
       return  dispatch(addBook(response));})
-    .catch(error =>  { alert('Your book could not be added\nError: '+error.message); });
+    .catch(error =>  { alert('Sách của bạn không thể thêm.\nLỗi: '+error.message); });
 };
 
 export const editBook = (_id, name, author, description, isbn, cat, floor, shelf, copies) => (dispatch) => {
@@ -73,7 +73,7 @@ export const editBook = (_id, name, author, description, isbn, cat, floor, shelf
   .then(response => response.json())
   .then(response => (dispatch(editBookdispatch(response))))
   .catch(error =>  {  
-  alert('Your book could not be edited\nError: '+error.message); });
+  alert('Sách của bạn không thể chỉnh sửa.\nLỗi: '+error.message); });
 };
 
 export const editPassword = (_id,username,password) => (dispatch) => {
@@ -103,10 +103,10 @@ export const editPassword = (_id,username,password) => (dispatch) => {
   let newCreds={username: username, password: password};
   localStorage.removeItem('creds');
   localStorage.setItem('creds', JSON.stringify(newCreds));
-  alert('Password changed successfully');
+  alert('Mật khẩu thay đổi thành công!');
   return dispatch(editPasswordDispatch(newCreds));})
 .catch(error =>  {  
-alert('Your password could not be changed\nError: '+error.message); });
+alert('Mặt khẩu của bạn không thể thay đổi.\nLỗi: '+error.message); });
 }
 
 export const editUser = (_id, firstname, lastname, roll, email) => (dispatch) => {
@@ -143,7 +143,7 @@ email: email  };
     localStorage.setItem('userinfo', JSON.stringify(response));
     return dispatch(editUserdispatch(response));})
   .catch(error =>  {  
-  alert('Your profile could not be edited\nError: '+error.message+'\n May be someone has already registered with that Roll No. or Email'); });
+  alert('Thông tin của bạn không thể sửa đổi.\nLỗi: '+error.message+'\n Đã có người sử dụng tên đăng nhập hoặc email này.'); });
 };
 
 export const deleteBook = (_id) => (dispatch) => {
@@ -170,7 +170,7 @@ export const deleteBook = (_id) => (dispatch) => {
     })
   .then(response => response.json())
   .then(response => dispatch(deleteBookdispatch(response)))
-  .catch(error =>  {alert('Your book could not be deleted\nError: '+error.message); });
+  .catch(error =>  {alert('Không thể xóa sách!\nError: '+error.message); });
 };
 
 export const fetchBooks = () => (dispatch) => {
@@ -327,7 +327,7 @@ export const loginUser = (creds) => (dispatch) => {
           }
           setTimeout(()=>{
             logoutUser();
-            alert('Your JWT token has expired. \nPlease log in again to continue.');
+            alert('Your JWT token has expired. \nVui lòng đăng nhập lại để tiếp tục.');
            },3600*1000);
           // Dispatch the success action
           dispatch(receiveLogin(response));
@@ -340,7 +340,7 @@ export const loginUser = (creds) => (dispatch) => {
       }
   })
   .catch(error => {
-    alert(error.message+'\n'+"Username and password didn't match");
+    alert(error.message+'\n'+"Tên đăng nhập hoặc mật khẩu không đúng!");
      return dispatch(loginError(error.message));})
 };
 
@@ -370,7 +370,7 @@ export const registerUser = (creds) => (dispatch) => {
   .then(response => {
       if (response.success) {
           // If Registration was successful, alert the user
-          alert('Registration Successful');
+          alert('Đăng ký thành công!');
         }
       else {
           var error = new Error('Error ' + response.status);
@@ -379,7 +379,7 @@ export const registerUser = (creds) => (dispatch) => {
       }
   })
   .catch(error => alert(error.message+'\n'+
-      'May be someone has already registered with that username, email or Roll No.\nTry Entering a new username,email or Roll No. '))
+      'Đã có người sử dụng tên đăng nhập hoặc email này.\nVui lòng thử nhập tên hoặc email khác! '))
 };
 
 export const addIssue = (issue) => ({
@@ -415,12 +415,12 @@ export const postIssue = (bookId,studentId) => (dispatch) => {
             throw error;
       })
     .then(response => response.json())
-    .then(response => { alert('Book issued successfully');
+    .then(response => { alert('Mượn sách thành công!');
       return  dispatch(addIssue(response));})
     .catch(error =>  {
-      alert('Book could not be issued\nError: '+error.message+'\n'+
-      'May be the student has already issued 3 books and not returned. Please return them first. \n'+
-      'or the book may not available. You can wait for some days, until the book is returned to library.'); });
+      alert('Không thể mượn sách!\nLỗi: '+error.message+'\n'+
+      'Người dùng này đã mượn tối đa 3 cuốn sách! Vui lòng trả sách cũ trước khi mượn mới. \n'+
+      'Hoặc sách hiện không có sẵn. Bạn có thể chờ ít ngày để sách được hoàn trả về thư viện.'); });
 };
 
 export const returnIssue = (issueId) => (dispatch) => {
@@ -446,10 +446,10 @@ export const returnIssue = (issueId) => (dispatch) => {
     })
   .then(response => response.json())
   .then(response => { 
-    alert('Book returned successfully');
+    alert('Trả sách thành công!');
     return dispatch(returnBookdispatch(response));})
   .catch(error =>  {  
-  alert('The book could not be returned\nError: '+error.message); });
+  alert('Không thể trả sách!\nLỗi: '+error.message); });
 };
 
 export const fetchIssues = (student) => (dispatch) => {

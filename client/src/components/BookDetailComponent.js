@@ -12,22 +12,22 @@ function RenderBook({book,isAdmin,toggleEditModal,changeSelected}) {
         <CardBody>
           <CardTitle align="right"> - {book.author}</CardTitle>
           <CardText>
-              <b> Category: </b> {book.cat} <br/><br/>
-              <b> ISBN number: </b> {book.isbn} <br/><br/>
-              <b>Descrption: </b><br/> {book.description} <br/><br/>
-              <b> Location: </b> <br/>Shelf no. {book.shelf} ,<br/>
+              <b> Thể loại: </b> {book.cat} <br/><br/>
+              <b> Mã số sách ISBN: </b> {book.isbn} <br/><br/>
+              <b> Mô tả: </b><br/> {book.description} <br/><br/>
+              <b> Vị trí: </b> <br/>Mã kệ {book.shelf} ,<br/>
               {book.floor===0?' Ground ':book.floor}{(book.floor===1)?'st ':(book.floor===2)?'nd ':(book.floor===3)?'rd ':(book.floor===0)?'':'th '}
-              Floor <br/><br/>
-             <b> Copies available : </b> {book.copies}
+              Tầng <br/><br/>
+             <b> Số lượng hiện có: </b> {book.copies}
       </CardText><br/>
         </CardBody>
         <CardFooter className="text-muted">
         <Row>
         <Col md={6}>
-        Created at : {new Intl.DateTimeFormat('en-US',{year: 'numeric', month: 'short', day: '2-digit', hour: 'numeric',minute: 'numeric', hour12: true }).format(new Date( Date.parse(book.createdAt)))}    
+        Được tạo lúc: {new Intl.DateTimeFormat('en-US',{year: 'numeric', month: 'short', day: '2-digit', hour: 'numeric',minute: 'numeric', hour12: true }).format(new Date( Date.parse(book.createdAt)))}    
         </Col>
         <Col md={6}>
-        Last updated at : {new Intl.DateTimeFormat('en-US',{year: 'numeric', month: 'short', day: '2-digit',hour: 'numeric',minute: 'numeric', hour12: true}).format(new Date( Date.parse(book.updatedAt)))} 
+        Lần cuối cập nhật: {new Intl.DateTimeFormat('en-US',{year: 'numeric', month: 'short', day: '2-digit',hour: 'numeric',minute: 'numeric', hour12: true}).format(new Date( Date.parse(book.updatedAt)))} 
         </Col>
         </Row>
         </CardFooter>

@@ -266,32 +266,32 @@ class Main extends Component {
         <Footer/>
         <Modal isOpen={this.state.isDeleteModalOpen} toggle={this.toggleDeleteModal}>
                      <ModalHeader toggle={this.toggleDeleteModal}>
-                         Confirm Deletion
+                         Xác nhận xóa
                      </ModalHeader>
                      <ModalBody>
-                       Book details : <br/><br/>
-                        Name : {this.state.selectedBook?this.state.selectedBook.name:''} <br/>
-                        Authors : {this.state.selectedBook?this.state.selectedBook.author:''} <br/>
-                        ISBN Number : {this.state.selectedBook?this.state.selectedBook.isbn:''} <br/>
-                        Available Copies : {this.state.selectedBook?this.state.selectedBook.copies:''} <br/> <br/>
-                        Are you sure you wish to delete this book ? <br/><br/>
+                       Chi tiết về sách: <br/><br/>
+                        Tên sách: {this.state.selectedBook?this.state.selectedBook.name:''} <br/>
+                        Tác giả: {this.state.selectedBook?this.state.selectedBook.author:''} <br/>
+                        Mã số sách ISBN: {this.state.selectedBook?this.state.selectedBook.isbn:''} <br/>
+                        Số lượng hiện có: {this.state.selectedBook?this.state.selectedBook.copies:''} <br/> <br/>
+                        Bạn có chắc chắn xóa sách này không? <br/><br/>
          <Button color="danger" onClick={()=>{
            this.props.deleteBook(this.state.selectedBook._id);
-           this.toggleDeleteModal();}}>Yes</Button>{' '}  
+           this.toggleDeleteModal();}}>Xóa</Button>{' '}  
          <Button color="warning" onClick={()=>{
            this.toggleDeleteModal();
-         }}>No</Button>
+         }}>Hủy</Button>
                      </ModalBody>
           </Modal>
           {this.state.selectedBook?(
                  <Modal isOpen={this.state.isEditModalOpen} toggle={this.toggleEditModal}>
                      <ModalHeader toggle={this.toggleEditModal}>
-                         Edit a book
+                         Sửa thông tin sách
                      </ModalHeader>
                      <ModalBody>
                     <LocalForm onSubmit={(values) => this.handleSubmitEdit(values)}>
                     <Row className="form-group">
-                                <Label htmlFor="name" md={2}>Name </Label>
+                                <Label htmlFor="name" md={2}>Tên sách </Label>
                                 <Col md={10}>
                                     <Control.text model=".name" id="name" name="name"
                                         defaultValue={this.state.selectedBook.name}
@@ -306,15 +306,15 @@ class Main extends Component {
                                         model=".name"
                                         show="touched"
                                         messages={{
-                                            required: 'Required',
-                                            minLength: 'Must be greater than 2 characters',
-                                            uniqueName: ' There exists a book with this name already'
+                                            required: 'Yêu cầu:',
+                                            minLength: ' Phải nhiều hơn 2 ký tự.',
+                                            uniqueName: ' Tên sách này đã tồn tại.'
                                         }}
                                      />
                                 </Col>
                             </Row>                    
                             <Row className="form-group">
-                                <Label htmlFor="author" md={2}>Authors </Label>
+                                <Label htmlFor="author" md={2}>Tác giả </Label>
                                 <Col md={10}>
                                     <Control.text model=".author" id="author" name="author"
                                         defaultValue={this.state.selectedBook.author}
@@ -328,14 +328,14 @@ class Main extends Component {
                                         model=".author"
                                         show="touched"
                                         messages={{
-                                            required: 'Required',
-                                            minLength: 'Must be greater than 2 characters'
+                                            required: 'Yêu cầu:',
+                                            minLength: ' Phải nhiều hơn 2 ký tự.'
                                         }}
                                      />
                                 </Col>
                             </Row>
                             <Row className="form-group">
-                                <Label htmlFor="isbn" md={4}>ISBN No.</Label>
+                                <Label htmlFor="isbn" md={4}>Mã số sách ISBN</Label>
                                 <Col md={8}>
                                     <Control.text model=".isbn" id="isbn" name="isbn"
                                         defaultValue={this.state.selectedBook.isbn}
@@ -350,11 +350,11 @@ class Main extends Component {
                                         model=".isbn"
                                         show="touched"
                                         messages={{
-                                            required: 'Required',
-                                            minLength: 'Must be greater than 9 numbers',
-                                            maxLength: 'Must be 13 numbers or less',
-                                            isNumber: 'Must be a number',
-                                            uniqueIsbn: ' There exists a book with this ISBN No.'
+                                            required: 'Yêu cầu:',
+                                            minLength: ' Phải nhiều hơn 9 chữ số.',
+                                            maxLength: ' Tối đa 13 chữ số hoặc ít hơn.',
+                                            isNumber: ' Phải là chữ số.',
+                                            uniqueIsbn: ' Mã ISBN này đã tồn tại!'
                                         }}
                                      />
                                 </Col>
@@ -362,22 +362,22 @@ class Main extends Component {
                                         
                         <Row className="form-group">
                             <Col>
-                            <Label htmlFor="cat">Category</Label>
+                            <Label htmlFor="cat">Thể loại</Label>
                             <Control.select model=".cat" id="cat" className="form-control" defaultValue={this.state.selectedBook.cat}>
-                              <option>Romance</option> <option>Technology</option>
-                              <option>Computer Science</option> <option>Management</option>
-                              <option>Electronics</option> <option>Physics</option>
-                              <option>Chemistry</option> <option>Mathematics</option>
-                              <option>Fiction</option> <option>Philosophy</option>
-                              <option>Language</option> <option>Arts</option>
-                              <option>Other</option> 
+                              <option>Ngôn tình</option> <option>Kỹ thuật</option>
+                              <option>Công nghệ Thông tin</option> <option>Quản lý</option>
+                              <option>Điện tử</option> <option>Vật lý</option>
+                              <option>Hóa học</option> <option>Toán học</option>
+                              <option>Khoa học Viễn tưởng</option> <option>Triết học</option>
+                              <option>Ngôn ngữ</option> <option>Nghệ thuật</option>
+                              <option>Khác</option> 
 
                                                           </Control.select>
                             </Col>
                         </Row>
 
                         <Row className="form-group">
-                                <Label htmlFor="copies" md={6}> Copies Available</Label>
+                                <Label htmlFor="copies" md={6}> Số lượng hiện có</Label>
                                 <Col md={6}>
                                     <Control.text model=".copies" id="copies" name="copies"
                                         defaultValue={this.state.selectedBook.copies}
@@ -390,10 +390,10 @@ class Main extends Component {
                                         className="text-danger"
                                         model=".copies"
                                         messages={{
-                                            requiredNum: 'Required',
-                                            minVal: 'Must be greater than 0',
-                                            maxVal: 'Must be 1000 or less',
-                                            isNumber: 'Must be a number'
+                                            requiredNum: 'Yêu cầu:',
+                                            minVal: ' Số lượng lớn hơn 0.',
+                                            maxVal: ' Tối đa 1000 hoặc ít hơn.',
+                                            isNumber: ' Phải là một số.'
                                         }}
                                      />
                                 </Col>
@@ -401,7 +401,7 @@ class Main extends Component {
 
                         <Row className="form-group">
                             <Col>
-                            <Label htmlFor="floor">Floor </Label>
+                            <Label htmlFor="floor">Tầng </Label>
                             <Control.select model=".floor" id="floor" className="form-control" defaultValue={this.state.selectedBook.floor}>
                               <option>0</option> <option>1</option>
                               <option>2</option> <option>3</option>
@@ -413,7 +413,7 @@ class Main extends Component {
                         </Row>
                         
                         <Row className="form-group">
-                                <Label htmlFor="shelf" md={6}> Shelf</Label>
+                                <Label htmlFor="shelf" md={6}> Kệ</Label>
                                 <Col md={6}>
                                     <Control.text model=".shelf" id="shelf" name="shelf"
                                         defaultValue={this.state.selectedBook.shelf}
@@ -426,10 +426,10 @@ class Main extends Component {
                                         className="text-danger"
                                         model=".shelf"
                                         messages={{
-                                            requiredNum: 'Required',
-                                            minVal: 'Must be greater than 0',
-                                            maxVal: 'Must be 100 or less',
-                                            isNumber: 'Must be a number'
+                                            requiredNum: 'Yêu cầu:',
+                                            minVal: ' Số lượng lớn hơn 0.',
+                                            maxVal: ' Tối đa 1000 hoặc ít hơn.',
+                                            isNumber: ' Phải là một số.'
                                         }}
                                      />
                                 </Col>
@@ -437,7 +437,7 @@ class Main extends Component {
 
                      
                         <Row className="form-group">
-                                <Label htmlFor="description" md={2}>Description</Label>
+                                <Label htmlFor="description" md={2}>Mô tả</Label>
                                 <Col md={10}>
                                     <Control.textarea model=".description" id="description" name="description"
                                         rows="12"
@@ -448,7 +448,7 @@ class Main extends Component {
                           <Row>
                           <Col className="ml-auto mr-auto">
                         <Button type="submit" className="bg-primary">
-                            Submit
+                            Xác nhận
                         </Button>
                         </Col>
                         </Row>

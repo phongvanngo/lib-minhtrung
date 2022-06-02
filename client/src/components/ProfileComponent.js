@@ -39,7 +39,7 @@ render(){
     if(this.props.auth.userinfo===null){
         return (
             <div className="row heading">
-                Failed to fetch. Please reload the page
+                Lỗi! Vui lòng tải lại trang.
             </div>
         )
     }
@@ -50,25 +50,25 @@ render(){
             
             <Card className="heading">
                 
-        <CardHeader><h3>My Profile</h3></CardHeader>
+        <CardHeader><h3>Tài khoản</h3></CardHeader>
         <CardBody>
           <CardText>
-          <h5> First Name : {'          '+this.props.auth.userinfo.firstname}</h5>
-          <h5> Last Name : {'          '+this.props.auth.userinfo.lastname}</h5>
-          <h5> {(this.props.auth.userinfo.admin)?'Admin Id : ':'Roll No.'} : {'          '+this.props.auth.userinfo.roll}</h5>
-          <h5> Email : {'          '+this.props.auth.userinfo.email}</h5>
+          <h5> Họ: {'          '+this.props.auth.userinfo.firstname}</h5>
+          <h5> Tên: {'          '+this.props.auth.userinfo.lastname}</h5>
+          {/* <h5> {(this.props.auth.userinfo.admin)?'Admin Id : ':'Roll No.'} : {'          '+this.props.auth.userinfo.roll}</h5> */}
+          <h5> Email: {'          '+this.props.auth.userinfo.email}</h5>
           </CardText>
           
-          <Button color="info" onClick={this.toggleEditModal}>Edit &nbsp;{'   '}<span className="fa fa-pencil"/></Button>
+          <Button color="info" onClick={this.toggleEditModal}>Sửa &nbsp;{'   '}<span className="fa fa-pencil"/></Button>
         {' '}
-{this.props.auth.userinfo.admin?<div/>:        <Button color="info" onClick={this.togglePasswordModal}>Change Password &nbsp;{'   '}<span className="fa fa-key"/></Button>}
+{this.props.auth.userinfo.admin?<div/>:        <Button color="info" onClick={this.togglePasswordModal}>Đổi mật khẩu &nbsp;{'   '}<span className="fa fa-key"/></Button>}
 
         </CardBody>
           </Card>
             </div>
             <Modal isOpen={this.state.isEditModalOpen} toggle={this.toggleEditModal}>
                      <ModalHeader toggle={this.toggleEditModal}>
-                         Edit Profile
+                         Sửa thông tin
                      </ModalHeader>
                      <ModalBody>
                      <LocalForm model="user" onSubmit={(values) => {
@@ -77,39 +77,39 @@ render(){
                                 values.lastname, values.roll, values.email);     
                                  }}>
                             <FormGroup>
-                                <Label htmlFor="firstname">First Name</Label>
+                                <Label htmlFor="firstname">Họ</Label>
                                 <Control.text model=".firstname" id="firstname" name="firstname" 
                             className="form-control" defaultValue={this.props.auth.userinfo.firstname}
                              placeholder="firstname" 
                              validators={{required,minLength: minLength(3),maxLength:maxLength(20)}} />
-                            <Errors className="text-danger" model=".firstname" show="touched" messages={{required: 'Required',
-                            minLength: ' Must be greater than 2 characters', maxLength:' Must be 20 characters or less'}}/>
+                            <Errors className="text-danger" model=".firstname" show="touched" messages={{required: 'Yêu cầu:',
+                            minLength: ' Phải nhiều hơn 2 ký tự.', maxLength:' Tối đa 20 ký tự hoặc ít hơn.'}}/>
                             </FormGroup>
                             <FormGroup>    
-                                 <Label htmlFor="lastname">Last Name</Label>
+                                 <Label htmlFor="lastname">Tên</Label>
                                 <Control.text model=".lastname" id="lastname" name="lastname" 
                             className="form-control"  defaultValue={this.props.auth.userinfo.lastname}
                             placeholder="lastname" validators={{required,minLength: minLength(3),maxLength:maxLength(20)}} />
-                            <Errors className="text-danger" model=".lastname" show="touched" messages={{required: 'Required',
-                            minLength: ' Must be greater than 2 characters', maxLength:' Must be 20 characters or less'}}/>
+                            <Errors className="text-danger" model=".lastname" show="touched" messages={{required: 'Yêu cầu:',
+                            minLength: ' Phải nhiều hơn 2 ký tự.', maxLength:' Tối đa 20 ký tự hoặc ít hơn.'}}/>
                             </FormGroup>
                             <FormGroup>    
-                                 <Label htmlFor="roll">Roll No.</Label>
+                                 <Label htmlFor="roll">MSSV</Label>
                                 <Control.text model=".roll" id="roll" name="roll" 
                             className="form-control"  defaultValue={this.props.auth.userinfo.roll}
                             placeholder="roll" validators={{required,minLength: minLength(3),maxLength:maxLength(12)}} />
-                            <Errors className="text-danger" model=".roll" show="touched" messages={{required: 'Required',
-                            minLength: ' Must be greater than 2 characters', maxLength:' Must be 12 characters or less'}}/>
+                            <Errors className="text-danger" model=".roll" show="touched" messages={{required: 'Yêu cầu:',
+                            minLength: ' Phải nhiều hơn 2 ký tự.', maxLength:' Tối đa 20 ký tự hoặc ít hơn.'}}/>
                             </FormGroup>
                             <FormGroup>    
                                  <Label htmlFor="email">E-mail</Label>
                                 <Control.text model=".email" id="email" name="email"
                                  defaultValue={this.props.auth.userinfo.email} 
                             className="form-control" placeholder="email" validators={{required,validEmail}} />
-                            <Errors className="text-danger" model=".email" show="touched" messages={{required: 'Required',
-                            validEmail: ' Enter a valid email'}}/>
+                            <Errors className="text-danger" model=".email" show="touched" messages={{required: 'Yêu cầu:',
+                            validEmail: ' Email chưa hợp lệ. Vui lòng nhập lại!'}}/>
                             </FormGroup>
-                            <Button type="submit" value="submit" color="primary" >Submit</Button>
+                            <Button type="submit" value="submit" color="primary" >Xác nhận</Button>
                         </LocalForm>
                      </ModalBody>
                
@@ -117,7 +117,7 @@ render(){
 
           <Modal isOpen={this.state.isPasswordModalOpen} toggle={this.togglePasswordModal}>
                      <ModalHeader toggle={this.togglePasswordModal}>
-                         Change Password
+                         Đổi mật khẩu
                      </ModalHeader>
                      <ModalBody>
                      <LocalForm model="passwordform" onSubmit={(values) => {
@@ -127,41 +127,41 @@ render(){
                                 values.newpassword);     
                                }
                         else {
-                            alert("Your passwords didn't match. Please try again");
+                            alert("Mật khẩu mới không khớp. Vui lòng thử lại!");
                         }
                                  }}>
                             <FormGroup>
-                            <Label htmlFor="password">Current Password</Label>
+                            <Label htmlFor="password">Mật khẩu hiện tại</Label>
                                 <Control.password model=".password" id="password" name="password" 
-                            className="form-control" placeholder="password" validators={{required,minLength: minLength(6),maxLength:maxLength(20),
+                            className="form-control" placeholder="Mật khẩu" validators={{required,minLength: minLength(6),maxLength:maxLength(20),
                             matchcreds: matchcreds(this.props.auth.user.password)}} />
-                            <Errors className="text-danger" model=".password" show="touched" messages={{required: 'Required',
-                            minLength: ' Must be greater than 5 characters', maxLength:' Must be 20 characters or less',
-                            matchcreds: ' Enter the correct password'}}/>
+                            <Errors className="text-danger" model=".password" show="touched" messages={{required: 'Yêu cầu:',
+                            minLength: ' Phải nhiều hơn 5 ký tự.', maxLength:' Tối đa 20 ký tự hoặc ít hơn.',
+                            matchcreds: ' Vui lòng nhập đúng mật khẩu.'}}/>
                             </FormGroup>
 
                             <FormGroup>
-                            <Label htmlFor="newpassword">New password</Label>
+                            <Label htmlFor="newpassword">Mật khẩu mới</Label>
                                 <Control.password model=".newpassword" id="newpassword" name="newpassword" 
-                            className="form-control" placeholder="New Password" validators={{required,minLength: minLength(6),maxLength:maxLength(20)
+                            className="form-control" placeholder="Mật khẩu mới" validators={{required,minLength: minLength(6),maxLength:maxLength(20)
                             }}  />
-                            <Errors className="text-danger" model=".newpassword" show="touched" messages={{required: 'Required',
-                            minLength: ' Must be greater than 5 characters', maxLength:' Must be 20 characters or less'
+                            <Errors className="text-danger" model=".newpassword" show="touched" messages={{required: 'Yêu cầu:',
+                            minLength: ' Phải nhiều hơn 5 ký tự.', maxLength:' Tối đa 20 ký tự hoặc ít hơn.'
                       }}/>
                             </FormGroup>
                             
                             <FormGroup>
-                            <Label htmlFor="confirm">Confirm Password</Label>
+                            <Label htmlFor="confirm">Xác nhận mật khẩu</Label>
                                 <Control.password model=".confirm" id="confirm" name="confirm" 
                             className="form-control"
-                            placeholder="Re-enter the new password" validators={{required,minLength: minLength(6),maxLength:maxLength(20)
+                            placeholder="Nhập lại mật khẩu mới" validators={{required,minLength: minLength(6),maxLength:maxLength(20)
                                  } } />
-                            <Errors className="text-danger" model=".confirm" show="touched" messages={{required: 'Required',
-                            minLength: ' Must be greater than 5 characters', maxLength:' Must be 20 characters or less'
+                            <Errors className="text-danger" model=".confirm" show="touched" messages={{required: 'Yêu cầu:',
+                            minLength: ' Phải nhiều hơn 5 ký tự.', maxLength:' Tối đa 20 ký tự hoặc ít hơn.'
                        }}/>
                             </FormGroup>
                             
-                            <Button type="submit" value="submit" color="primary" >Submit</Button>
+                            <Button type="submit" value="submit" color="primary" >Xác nhận</Button>
                         </LocalForm>
                      </ModalBody>               
           </Modal>

@@ -25,7 +25,7 @@ const bookSchema = new Schema({
     },
     cat: {
         type: String,
-        enum: ['Romance','Technology','Computer Science','Management','Electronics','Physics','Chemistry','Mathematics','Fiction','Philosophy','Language','Arts','Other'],
+        // enum: ['Ngôn tình','Kỹ thuật','Công nghệ Thông tin','Quản lý','Điện tử','Vật lý','Hóa học','Toán học','Khoa học Viễn tưởng','Triết học','Ngôn ngữ','Nghệ thuật','Khác'],
         required: true
     },
     copies: {

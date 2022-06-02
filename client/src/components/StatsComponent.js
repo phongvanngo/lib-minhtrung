@@ -70,7 +70,7 @@ render(){
         <div className="container mt-6 text-center align-self-center full">
             <div className="row text-center justify-content-center heading">
             <div className="col-12">
-                <h3>Stats</h3>
+                <h3>Số liệu thống kê</h3>
             </div>
             </div>
             <div className="row">
@@ -80,10 +80,10 @@ render(){
                     <CardTitle>
                         <h1>{this.props.books.length}</h1>
                     </CardTitle>
-                    <CardText>Different books available</CardText>
+                    <CardText>Số tác phẩm hiện có</CardText>
                         <CardLink tag={Link} to="/books">
                             <Button color="info"><i className="fa fa-eye fa-lg"/>
-                             {' '}&nbsp;View
+                             {' '}&nbsp;Xem
                             </Button>           
                         </CardLink>
                 </CardBody>
@@ -96,10 +96,10 @@ render(){
                     <CardTitle>
                         <h1>{this.props.issues.issues.length}</h1>
                     </CardTitle>
-                    <CardText>Books Issued</CardText>
+                    <CardText>Sồ lần mượn sách</CardText>
                         <CardLink tag={Link} to="/logs">
                             <Button color="info"><i className="fa fa-eye fa-lg"/>
-                             {' '}&nbsp;View
+                             {' '}&nbsp;Xem
                             </Button>           
                         </CardLink>
                 </CardBody>
@@ -113,10 +113,10 @@ render(){
                     {this.props.issues.issues.filter((issue)=>(!issue.returned)).length}
                     </h1>
                     </CardTitle>
-                    <CardText>Books not yet returned</CardText>
+                    <CardText>Sách đang được mượn</CardText>
                         <CardLink>
                             <Button tag={Link} to="/return" color="info"><i className="fa fa-eye fa-lg"/>
-                             {' '}&nbsp;View
+                             {' '}&nbsp;Xem
                             </Button>           
                         </CardLink>
                 </CardBody>
@@ -128,16 +128,16 @@ render(){
                     <CardTitle>
                         <h1>{this.props.users.filter((user)=>(!user.admin)).length}</h1>
                     </CardTitle>
-                    <CardText>Students registered</CardText>
+                    <CardText>Số người dùng đã đăng ký</CardText>
                         <CardLink tag={Link} to="/list_students">
                             <Button color="info"><i className="fa fa-eye fa-lg"/>
-                             {' '}&nbsp;View
+                             {' '}&nbsp;Xem
                             </Button>           
                         </CardLink>
                 </CardBody>
             </Card>
             </div>
-            <div className="col-12 col-md-6 col-xl-4 mt-4">
+            {/* <div className="col-12 col-md-6 col-xl-4 mt-4">
             <Card>
                 <CardBody>
                     <CardTitle>
@@ -151,7 +151,7 @@ render(){
                         </CardLink>
                 </CardBody>
             </Card>
-            </div>
+            </div> */}
             </div>
             
             <br/>

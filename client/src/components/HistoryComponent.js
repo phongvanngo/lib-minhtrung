@@ -123,9 +123,9 @@ render(){
                 <Table striped bordered hover responsive>
         <thead>
            <tr>
-            <th>S.No.</th>
-            <th>Name of Book</th>
-            <th>ISBN number</th>
+            <th>STT</th>
+            <th>Tên sách</th>
+            <th>Mã số sách ISBN</th>
             <th>Issue Date</th>
             <th>Return Deadline</th>
             <th>Return status</th> 

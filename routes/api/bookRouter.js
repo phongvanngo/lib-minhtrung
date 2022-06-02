@@ -25,7 +25,9 @@ bookRouter.route('/')
         res.statusCode=200;
         res.setHeader('Content-Type','application/json');
         res.json(book);
-    },(err)=>(next(err)))
+    },(err)=>{
+        console.log(err)
+        next(err)})
     .catch((err)=>(next(err))) 
 })
 .put(cors.corsWithOptions,authenticate.verifyUser,authenticate.verifyAdmin,(req, res, next) => {

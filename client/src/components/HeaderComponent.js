@@ -16,7 +16,7 @@ const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val
       <React.Fragment>
           &nbsp;
       <Button color="primary" outline onClick={props.toggleRegister}>                    
-     <span className="fa fa-user-plus fa-lg"></span> Register
+     <span className="fa fa-user-plus fa-lg"></span> Đăng ký
      </Button>
       </React.Fragment>
     );
@@ -85,13 +85,13 @@ class Header extends Component{
                     <div className="container">
                      <NavbarToggler onClick={this.toggleNav}></NavbarToggler>
                      <NavbarBrand className="mr-auto text-primary" href="/home">
-                     Central Library
+                     The Friday Library
                      </NavbarBrand>
                      <Collapse isOpen={this.state.isNavOpen} navbar>
                      <Nav navbar>
                         <NavItem className="ml-2" onClick={this.toggleNav}>
                             <NavLink className="nav-link text-primary" to="/home">
-                               <span className="fa fa-home fa-lg"/> Home
+                               <span className="fa fa-home fa-lg"/> Trang chủ
                            </NavLink>
                         </NavItem>
                         {this.props.auth.userinfo&&this.props.auth.userinfo?.admin?(
@@ -99,22 +99,22 @@ class Header extends Component{
                             <Dropdown  isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                             <DropdownToggle color="Primary" >
                             <div className="text-primary">
-                                                    <span className="fa fa-book fa-lg"/> Books
+                                                    <span className="fa fa-book fa-lg"/> Sách
                                                    &nbsp; <i className="fa fa-caret-down fa-sm" aria-hidden="true"></i>
 
                                                 </div>
                             </DropdownToggle>
                             <DropdownMenu>
-                              <DropdownItem onClick={this.toggleNav} tag={Link} to="/books">View / Modify books</DropdownItem>
+                              <DropdownItem onClick={this.toggleNav} tag={Link} to="/books">Xem sách</DropdownItem>
                               <DropdownItem divider/>
-                              <DropdownItem onClick={this.toggleNav} tag={Link} to="/add_book" >Add book</DropdownItem>
+                              <DropdownItem onClick={this.toggleNav} tag={Link} to="/add_book" >Thêm sách</DropdownItem>
                             </DropdownMenu>
                           </Dropdown>
                           </NavItem>
                         ):(
                             <NavItem className="ml-2" onClick={this.toggleNav}>
                                   <NavLink className="nav-link text-primary" to="/books">
-                                                    <span className="fa fa-book fa-lg"/> Books
+                                                    <span className="fa fa-book fa-lg"/> Sách
                                                 </NavLink>
                               </NavItem>
     
@@ -122,14 +122,14 @@ class Header extends Component{
                         
                         <NavItem className="ml-2" onClick={this.toggleNav}>
                             <NavLink className="nav-link text-primary" to="/search">
-                                <span className="fa fa-search fa-lg"/> Search
+                                <span className="fa fa-search fa-lg"/> Tìm kiếm
                             </NavLink>
                         </NavItem>
                         {
                             (this.props.auth.isAuthenticated)?(
                                 <NavItem onClick={this.toggleNav} className="ml-2">
                                 <NavLink className="nav-link text-primary" to="/profile">
-                                     <span className="fa fa-user-circle-o fa-lg"/> My Profile
+                                     <span className="fa fa-user-circle-o fa-lg"/> Tài khoản
                                 </NavLink>
                                 </NavItem>
                             ):
@@ -150,17 +150,17 @@ class Header extends Component{
                               <React.Fragment>
                                 <NavItem onClick={this.toggleNav} className="ml-2">
                                 <NavLink className="nav-link text-primary" to="/issue">
-                                     <span className="fa fa-plus-square"/> Issue Book
+                                     <span className="fa fa-plus-square"/> Mượn
                                 </NavLink>
                                 </NavItem>
                                 <NavItem onClick={this.toggleNav} className="ml-2">
                                 <NavLink className="nav-link text-primary" to="/return">
-                                   <span className="fa fa-list-ul"/> Return Book
+                                   <span className="fa fa-list-ul"/> Trả
                                 </NavLink>
                                 </NavItem>
                                 <NavItem onClick={this.toggleNav} className="ml-2">
                                 <NavLink className="nav-link text-primary" to="/stats">
-                                   <span className="fa fa-info-circle"/> Stats
+                                   <span className="fa fa-info-circle"/> Số liệu
                                 </NavLink>
                                 </NavItem>
                               </React.Fragment>
@@ -172,7 +172,7 @@ class Header extends Component{
                      <NavItem>
                                     { !this.props.auth.isAuthenticated ?
                         <Button outline color="primary" onClick={this.toggleModal}>
-                                            <span className="fa fa-sign-in fa-lg"></span> Login
+                                            <span className="fa fa-sign-in fa-lg"></span> Đăng nhập
                                             {this.props.auth.isLoading ?
                                                 <span className="fa fa-spinner fa-pulse fa-fw"></span>
                                                 : null
@@ -182,7 +182,7 @@ class Header extends Component{
                                         <div>
                                         <div className="navbar-text mr-3">{this.props.auth.user?.username}</div>
                                         <Button outline color="primary" onClick={this.handleLogout}>
-                                            <span className="fa fa-sign-out fa-lg"></span> Logout
+                                            <span className="fa fa-sign-out fa-lg"></span> Đăng xuất
                                             {this.props.auth.isLoading ?
                                                 <span className="fa fa-spinner fa-pulse fa-fw"></span>
                                                 : null
@@ -200,27 +200,27 @@ class Header extends Component{
                  </Navbar>
                  <Modal isOpen={!this.props.auth.isAuthenticated&&this.state.isModalOpen} toggle={this.toggleModal}>
                      <ModalHeader toggle={this.toggleModal}>
-                         Sign In
+                         Đăng nhập
                      </ModalHeader>
                      <ModalBody>
                         <Form onSubmit={this.handleLogin}>
                             <FormGroup>
-                                <Label htmlFor="username">Username</Label>
+                                <Label htmlFor="username">Tên đăng nhập</Label>
                                 <Input type="text" id="username" name="username"
                                     innerRef={(input) => this.username = input} />
                             </FormGroup>
                             <FormGroup>
-                                <Label htmlFor="password">Password</Label>
+                                <Label htmlFor="password">Mật khẩu</Label>
                                 <Input type="password" id="password" name="password"
                                     innerRef={(input) => this.password = input}  />
                             </FormGroup>
-                            <Button type="submit" value="submit" color="primary">Login</Button>
+                            <Button type="submit" value="submit" color="primary">Đăng nhập</Button>
                         </Form>
                     </ModalBody>
                      </Modal>
                  <Modal isOpen={this.state.isRegisterOpen} toggle={this.toggleRegister}>
                      <ModalHeader toggle={this.toggleRegister}>
-                         Register 
+                         Đăng ký
                      </ModalHeader>
                      <ModalBody>
                      <LocalForm model="user" onSubmit={(values) => {
@@ -234,48 +234,48 @@ class Header extends Component{
                                lastname: values.lastname });
                               }}>
                             <FormGroup>
-                                <Label htmlFor="username">Username</Label>
+                                <Label htmlFor="username">Tên đăng nhập</Label>
                                 <Control.text model=".username" id="username" name="username" 
-                            className="form-control" placeholder="Username" validators={{required,minLength: minLength(3),maxLength:maxLength(20)}} />
-                            <Errors className="text-danger" model=".username" show="touched" messages={{required: 'Required',
-                            minLength: ' Must be greater than 2 characters', maxLength:' Must be 20 characters or less'}}/>
+                            className="form-control" placeholder="Tên đăng nhập" validators={{required,minLength: minLength(3),maxLength:maxLength(20)}} />
+                            <Errors className="text-danger" model=".username" show="touched" messages={{required: 'Yêu cầu:',
+                            minLength: ' Phải nhiều hơn 2 ký tự.', maxLength:' Tối đa 20 ký tự hoặc ít hơn.'}}/>
                             </FormGroup>
                             <FormGroup>
-                            <Label htmlFor="password">Password</Label>
+                            <Label htmlFor="password">Mật khẩu</Label>
                                 <Control.password model=".password" id="password" name="password" 
-                            className="form-control" placeholder="password" validators={{required,minLength: minLength(6),maxLength:maxLength(20)}} />
-                            <Errors className="text-danger" model=".password" show="touched" messages={{required: 'Required',
-                            minLength: ' Must be greater than 5 characters', maxLength:' Must be 20 characters or less'}}/>
+                            className="form-control" placeholder="Mật khẩu" validators={{required,minLength: minLength(6),maxLength:maxLength(20)}} />
+                            <Errors className="text-danger" model=".password" show="touched" messages={{required: 'Yêu cầu:',
+                            minLength: ' Phải nhiều hơn 5 ký tự.', maxLength:' Tối đa 20 ký tự hoặc ít hơn.'}}/>
                             </FormGroup>
                             <FormGroup>
-                                <Label htmlFor="firstname">First Name</Label>
+                                <Label htmlFor="firstname">Họ</Label>
                                 <Control.text model=".firstname" id="firstname" name="firstname" 
-                            className="form-control" placeholder="firstname" validators={{required,minLength: minLength(3),maxLength:maxLength(20)}} />
-                            <Errors className="text-danger" model=".firstname" show="touched" messages={{required: 'Required',
-                            minLength: ' Must be greater than 2 characters', maxLength:' Must be 20 characters or less'}}/>
+                            className="form-control" placeholder="Họ" validators={{required,minLength: minLength(3),maxLength:maxLength(20)}} />
+                            <Errors className="text-danger" model=".firstname" show="touched" messages={{required: 'Yêu cầu:',
+                            minLength: ' Phải nhiều hơn 2 ký tự.', maxLength:' Tối đa 20 ký tự hoặc ít hơn.'}}/>
                             </FormGroup>
                             <FormGroup>    
-                                 <Label htmlFor="lastname">Last Name</Label>
+                                 <Label htmlFor="lastname">Tên</Label>
                                 <Control.text model=".lastname" id="lastname" name="lastname" 
-                            className="form-control" placeholder="lastname" validators={{required,minLength: minLength(3),maxLength:maxLength(20)}} />
-                            <Errors className="text-danger" model=".lastname" show="touched" messages={{required: 'Required',
-                            minLength: ' Must be greater than 2 characters', maxLength:' Must be 20 characters or less'}}/>
+                            className="form-control" placeholder="Tên" validators={{required,minLength: minLength(3),maxLength:maxLength(20)}} />
+                            <Errors className="text-danger" model=".lastname" show="touched" messages={{required: 'Yêu cầu:',
+                            minLength: ' Phải nhiều hơn 2 ký tự.', maxLength:' Tối đa 20 ký tự hoặc ít hơn.'}}/>
                             </FormGroup>
                             <FormGroup>    
-                                 <Label htmlFor="roll">Roll No.</Label>
+                                 <Label htmlFor="roll">MSSV</Label>
                                 <Control.text model=".roll" id="roll" name="roll" 
-                            className="form-control" placeholder="roll" validators={{required,minLength: minLength(3),maxLength:maxLength(12)}} />
-                            <Errors className="text-danger" model=".roll" show="touched" messages={{required: 'Required',
-                            minLength: ' Must be greater than 2 characters', maxLength:' Must be 12 characters or less'}}/>
+                            className="form-control" placeholder="MSSV" validators={{required,minLength: minLength(3),maxLength:maxLength(12)}} />
+                            <Errors className="text-danger" model=".roll" show="touched" messages={{required: 'Yêu cầu:',
+                            minLength: ' Phải nhiều hơn 2 ký tự.', maxLength:' Tối đa 12 ký tự hoặc ít hơn.'}}/>
                             </FormGroup>
                             <FormGroup>    
                                  <Label htmlFor="email">E-mail</Label>
                                 <Control.text model=".email" id="email" name="email" 
-                            className="form-control" placeholder="email" validators={{required,validEmail}} />
-                            <Errors className="text-danger" model=".email" show="touched" messages={{required: 'Required',
-                            validEmail: ' Enter a valid email'}}/>
+                            className="form-control" placeholder="Email" validators={{required,validEmail}} />
+                            <Errors className="text-danger" model=".email" show="touched" messages={{required: 'Yêu cầu:',
+                            validEmail: ' Email chưa hợp lệ! Vui lòng nhập lại.'}}/>
                             </FormGroup>
-                            <Button type="submit" value="submit" color="primary">Sign Up</Button>
+                            <Button type="submit" value="submit" color="primary">Đăng ký</Button>
                         </LocalForm>
                      </ModalBody>
                  </Modal>

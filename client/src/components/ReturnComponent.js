@@ -56,7 +56,8 @@ function RenderIssue ({issue,i,returnBook}) {
             <td>
             <Button color="info" onClick={()=>{
                returnBook(issue._id); 
-            }}>Return</Button>
+            }}>Trả sách
+            </Button>
             </td>         
             </React.Fragment>
        );
@@ -128,19 +129,19 @@ render(){
         <div className="container mt-6 text-center align-self-center full">
             <div className="row text-center justify-content-center">
             <div className="col-12 heading">
-                <h3>List of books not returned</h3>
+                <h3>Danh sách sách chưa trả</h3>
                 <Table striped bordered hover responsive>
         <thead>
            <tr>
-            <th>S.No.</th>
-            <th>Name of Student</th>
-            <th>Roll No.</th>
-            <th>Name of Book</th>
-            <th>ISBN number</th>
-            <th>Issue Date</th>
-            <th>Return Deadline</th>
-            <th>Fine (in Rs.)</th>
-            <th>Return book</th> 
+            <th>STT</th>
+            <th>Tên người mượn</th>
+            <th>MSSV</th>
+            <th>Tên sách</th>
+            <th>Mã số sách ISBN</th>
+            <th>Ngày mượn</th>
+            <th>Hạn trả</th>
+            <th>Phí phạt trễ</th>
+            <th>Trả sách</th> 
            </tr>
         </thead>
         <tbody>
@@ -148,7 +149,7 @@ render(){
         </tbody>
         </Table>
             <br/>
-            <h6> Total Fine due (if all pending books are returned today) : Rs. {totalFine} </h6>
+            {/* <h6> Total Fine due (if all pending books are returned today) : Rs. {totalFine} </h6> */}
             <br/>
             </div>
             </div>

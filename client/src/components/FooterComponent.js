@@ -10,7 +10,7 @@ class Footer extends Component {
 
 render(){
     return(
-                    <p className="footer" align="center">© Copyright 2019 IIT(ISM)</p>
+                    <p className="footer" align="center">IS208.M21 - The Friday Team</p>
           );
 }
 

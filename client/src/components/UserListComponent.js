@@ -90,14 +90,14 @@ render(){
         <div className="container mt-6 text-center align-self-center full">
             <div className="row text-center justify-content-center">
             <div className="col-12 heading">
-                <h3>List of {this.props.users[0].admin?' admins in-charge': ' students registered'}</h3>
+                <h3>Danh sách {this.props.users[0].admin?' admins in-charge': ' người dùng đã đăng ký'}</h3>
                 <Table striped bordered hover responsive>
         <thead>
            <tr>
-            <th>S.No.</th>
-            <th>Name of {this.props.users[0].admin?' admin': ' student'}</th>
-            <th>{this.props.users[0].admin?' Admin Id': ' Roll No.'}</th>
-            <th>Username</th>
+            <th>STT</th>
+            <th>Tên {this.props.users[0].admin?' admin': ' người dùng'}</th>
+            <th>{this.props.users[0].admin?' Admin Id': '  MSSV'}</th>
+            <th>Tên tài khoản</th>
             <th>Email</th>
             </tr>
         </thead>

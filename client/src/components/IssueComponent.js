@@ -68,7 +68,7 @@ render(){
     <div className="container full">
     <div className="row justify-content-center heading">
     <div className="col-12">
-  <h3 align="center">  Issue book</h3>
+  <h3 align="center">  Mượn sách</h3>
   </div>
     </div>
     <div className="row row-content justify-content-center">
@@ -80,39 +80,39 @@ render(){
     }}>
 
         <FormGroup row>
-          <Label htmlFor="isbn"> ISBN No. of book</Label>
+          <Label htmlFor="isbn"> Mã số sách ISBN</Label>
             <Input type="select" defaultValue={defaultBook.name} name="isbn" id="isbn" className="form-control" onInput={(e)=>{this.setState({isbn: e.target.value})}}>
                   {bookoptions}
             </Input>
         </FormGroup>
         <FormGroup row>
-          <Label htmlFor="roll"> Roll No. of student </Label>
+          <Label htmlFor="roll"> MSSV </Label>
             <Input type="select" id="roll" 
                    className="form-control" onInput={(e)=>{this.setState({roll: e.target.value})}}>
                    {useroptions}
             </Input>
         </FormGroup>
         <FormGroup row>
-          <Label htmlFor="name"> Name of book </Label>
+          <Label htmlFor="name"> Tên sách </Label>
              <Input type="text" id="name" name="name"
-                    placeholder="Name of Book" defaultValue={defaultBook.name}
+                    placeholder="Tên sách" defaultValue={defaultBook.name}
                     value={!this.state.isbn?''
                     :this.props.books.filter((book)=>(book.isbn===this.state.isbn))[0].name}
                     className="form-control" disabled/>
         </FormGroup>
         <FormGroup row>
-          <Label htmlFor="author"> Authors </Label>
+          <Label htmlFor="author"> Tác giả </Label>
             <Input type="text" id="author" name="author"
-                   placeholder="Name of authors" 
+                   placeholder="Tên tác giả" 
                    defaultValue={defaultBook.author}
                    value={!this.state.isbn?''
                    :this.props.books.filter((book)=>(book.isbn===this.state.isbn))[0].author}
                     className="form-control" disabled/>
          </FormGroup>
          <FormGroup row>
-          <Label htmlFor="name_student"> Name of student </Label>
+          <Label htmlFor="name_student"> Tên người mượn </Label>
             <Input type="text" id="name_student" name="name_student"
-                   placeholder="Name of student" 
+                   placeholder="Tên người mượnt" 
                    defaultValue={defaultUser.firstname+' '+defaultUser.lastname}
                    value={!this.state.roll?''
                    :this.props.users.filter((user)=>(user.roll===this.state.roll))[0].firstname+' '+
@@ -120,9 +120,9 @@ render(){
                     className="form-control" disabled/>
          </FormGroup>
          <FormGroup row>
-          <Label htmlFor="username"> Username of student </Label>
+          <Label htmlFor="username"> Tên tài khoản </Label>
             <Input type="text" id="username" name="username"
-                   placeholder="Username of student" 
+                   placeholder="Tên tài khoản" 
                    defaultValue={defaultUser.username}
                    value={!this.state.roll?''
                    :this.props.users.filter((user)=>(user.roll===this.state.roll))[0].username}
@@ -131,7 +131,7 @@ render(){
          <Row className="align-self-center">
             <Col className="text-center">
               <Button type="submit" className="bg-primary">
-                            Submit
+                            Xác nhận
                </Button>
             </Col>
         </Row>

@@ -45,14 +45,14 @@ render(){
             
             <Card className="heading">
                 
-        <CardHeader><h3>User Details</h3></CardHeader>
+        <CardHeader><h3>Chi tiết người dùng</h3></CardHeader>
         <CardBody>
           <CardText>
-          <h5> First Name : {'          '+this.props.user.firstname}</h5>
-          <h5> Last Name : {'          '+this.props.user.lastname}</h5>
-          <h5> {(this.props.user.admin)?'Admin Id : ':'Roll No.'} : {'          '+this.props.user.roll}</h5>
+          <h5> Họ: {'          '+this.props.user.firstname}</h5>
+          <h5> Tên: {'          '+this.props.user.lastname}</h5>
+          <h5> {(this.props.user.admin)?'Admin Id : ':'MSSV'} : {'          '+this.props.user.roll}</h5>
           <h5> Email : {'          '+this.props.user.email}</h5>
-          <h5> Username : {'          '+this.props.user.username}</h5>
+          <h5> Tên tài khoản: {'          '+this.props.user.username}</h5>
           </CardText>
         </CardBody>
           </Card>

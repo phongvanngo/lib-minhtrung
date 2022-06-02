@@ -10,7 +10,7 @@ class Search extends Component {
         this.state={
             name: '',
             author: '',
-            cat:['Romance','Technology','Computer Science','Management','Electronics','Physics','Chemistry','Mathematics','Fiction','Philosophy','Language','Arts','Other']
+            cat:['Ngôn tình','Kỹ thuật','Công nghệ Thông tin','Quản lý','Điện tử','Vật lý','Hóa học','Toán học','Khoa học Viễn tưởng','Triết học','Ngôn ngữ','Nghệ thuật','Khác']
         }
         this.onChange=this.onChange.bind(this);
     }
@@ -59,9 +59,9 @@ render(){
                           </React.Fragment>
              ):(<React.Fragment/>)}
             
-            <br/> <p className="ml-auto"> Authors : {`    ${book.author}`}</p>
-             <p> {book.copies} Copies available</p>
-             <p>Location : {` Floor- ${book.floor}, Shelf- ${book.shelf}`}</p>
+            <br/> <p className="ml-auto"> Tác giả : {`    ${book.author}`}</p>
+             <p>Số lượng hiện có: {book.copies} </p>
+             <p>Vị trí: {` Tầng - ${book.floor}, Kệ - ${book.shelf}`}</p>
             </ListGroupItem>        );
             else return (<React.Fragment/>);
     });
@@ -93,114 +93,114 @@ render(){
         <div className="container loading">
         <div className="row">
             <div className="col-12 heading">
-             <h3 align="center">Search your book here : </h3>
+             <h3 align="center">Tìm sách của bạn muốn tại đây:  </h3>
              <Form>
         <Row form>
           <Col md={6}>
             <FormGroup>
-              <Label for="name">Name of book</Label>
-              <Input type="name" name="name" id="name" value={this.state.name} onChange={(e)=>{this.setState({name: e.target.value});}} placeholder="Enter name of the book" />
+              <Label for="name">Tên sách</Label>
+              <Input type="name" name="name" id="name" value={this.state.name} onChange={(e)=>{this.setState({name: e.target.value});}} placeholder="Nhập tên sách" />
             </FormGroup>
           </Col>
           <Col md={6}>
             <FormGroup>
-              <Label for="author">Author</Label>
-              <Input type="author" name="author" id="author" value={this.state.author}  onChange={(e)=>{this.setState({author: e.target.value});}} placeholder="Enter name of author" />
+              <Label for="author">Tác giả</Label>
+              <Input type="author" name="author" id="author" value={this.state.author}  onChange={(e)=>{this.setState({author: e.target.value});}} placeholder="Nhập tên tác giả" />
             </FormGroup>
           </Col>
         </Row> 
         <Row>
         <Col sm={6} md={2}>
-            Category : {' '}
+            Thể loại: {' '}
         </Col>
         </Row>
         <FormGroup check>
         <Row>
         <Col xs={6} md={3}>
           <Label check for="romance">
-            <Input defaultChecked type="checkbox" onChange={this.onChange} id="romance" value="Romance" name="cat" />
-            Romance 
+            <Input defaultChecked type="checkbox" onChange={this.onChange} id="romance" value="Ngôn tình" name="cat" />
+            Ngôn tình 
           </Label>
         </Col>
         <Col xs={6} md={3}>
           <Label check for="fiction">
-            <Input defaultChecked type="checkbox" onChange={this.onChange} id="fiction" value="Fiction" name="cat" />
-            Fiction
+            <Input defaultChecked type="checkbox" onChange={this.onChange} id="fiction" value="Khoa học Viễn tưởng" name="cat" />
+            Khoa học Viễn tưởng
           </Label>
           </Col>
 
           <Col xs={6} md={3}>
           <Label check for="Arts">
-            <Input defaultChecked type="checkbox" onChange={this.onChange} id="Arts" value="Arts" name="cat" />
-            Arts
+            <Input defaultChecked type="checkbox" onChange={this.onChange} id="Arts" value="Nghệ thuật" name="cat" />
+            Nghệ thuật
           </Label>
           </Col>
           <Col xs={6} md={3}>
           <Label check for="computer">
-            <Input defaultChecked type="checkbox" onChange={this.onChange} id="computer" value="Computer Science" name="cat" />
-            Computer Science
+            <Input defaultChecked type="checkbox" onChange={this.onChange} id="computer" value="Công nghệ Thông tin" name="cat" />
+            Công nghệ Thông tin
           </Label>
           </Col>
           </Row>
           <Row>
         <Col xs={6} md={3}>
           <Label check for="management">
-            <Input defaultChecked type="checkbox" onChange={this.onChange} id="management" value="Management" name="cat" />
-            Management 
+            <Input defaultChecked type="checkbox" onChange={this.onChange} id="management" value="Quản lý" name="cat" />
+            Quản lý 
           </Label>
         </Col>
         <Col xs={6} md={3}>
           <Label check for="Physics">
-            <Input defaultChecked type="checkbox" onChange={this.onChange} id="Physics" value="Physics" name="cat" />
-            Physics
+            <Input defaultChecked type="checkbox" onChange={this.onChange} id="Physics" value="Vật lý" name="cat" />
+            Vật lý
           </Label>
           </Col>
 
           <Col xs={6} md={3}>
           <Label check for="technology">
-            <Input defaultChecked type="checkbox" onChange={this.onChange} id="technology" value="Technology"  name="cat" />
-            Technology
+            <Input defaultChecked type="checkbox" onChange={this.onChange} id="technology" value="Kỹ thuật"  name="cat" />
+            Kỹ thuật
           </Label>
           </Col>
           <Col xs={6} md={3}>
           <Label check for="Philosophy">
-            <Input defaultChecked type="checkbox" onChange={this.onChange} id="Philosophy" value="Philosophy" name="cat" />
-            Philosophy
+            <Input defaultChecked type="checkbox" onChange={this.onChange} id="Philosophy" value="Triết học" name="cat" />
+            Triết học
           </Label>
           </Col>
           </Row>
           <Row>
         <Col xs={6} md={3}>
           <Label check for="Mathematics">
-            <Input defaultChecked type="checkbox" onChange={this.onChange} id="Mathematics" value="Mathematics" name="cat" />
-            Mathematics 
+            <Input defaultChecked type="checkbox" onChange={this.onChange} id="Mathematics" value="Toán học" name="cat" />
+            Toán học 
           </Label>
         </Col>
         <Col xs={6} md={3}>
           <Label check for="Chemistry">
-            <Input defaultChecked type="checkbox" onChange={this.onChange} id="Chemistry" value="Chemistry" name="cat" />
-            Chemistry
+            <Input defaultChecked type="checkbox" onChange={this.onChange} id="Chemistry" value="Hóa học" name="cat" />
+            Hóa học
           </Label>
           </Col>
 
           <Col xs={6} md={3}>
           <Label check for="Electronics">
-            <Input defaultChecked type="checkbox" onChange={this.onChange} id="Electronics" value="Electronics" name="cat" />
-            Electronics
+            <Input defaultChecked type="checkbox" onChange={this.onChange} id="Electronics" value="Điện tử" name="cat" />
+            Điện tử
           </Label>
           </Col>
           <Col xs={6} md={3}>
           <Label check for="Language">
-            <Input defaultChecked type="checkbox" onChange={this.onChange} id="Language" value="Language" name="cat" />
-            Language
+            <Input defaultChecked type="checkbox" onChange={this.onChange} id="Language" value="Ngôn ngữ" name="cat" />
+            Ngôn ngữ
           </Label>
           </Col>
           </Row>
           <Row>
           <Col xs={6} md={3}>
           <Label check for="Other">
-            <Input defaultChecked type="checkbox" onChange={this.onChange} id="Other" value="Other" name="cat" />
-            Other
+            <Input defaultChecked type="checkbox" onChange={this.onChange} id="Other" value="Khác" name="cat" />
+            Khác
           </Label>
           </Col>
         </Row>

@@ -87,16 +87,16 @@ render(){
         <div className="container">
         <div className="row">
             <div className="col-12 heading">
-             <h3 align="center">List of All books</h3>
+             <h3 align="center">Danh sách sách tại thư viện</h3>
              <Table striped bordered hover responsive>
         <thead>
           <tr>
-            <th>S.No.</th>
-            <th>Name of Book</th>
-            <th>ISBN number</th>
-            <th>Authors</th>
-            <th>Copies available</th>
-            {this.props.isAdmin?(<th>Edit / <br/>Delete</th>):(<React.Fragment/>)}
+            <th>STT</th>
+            <th>Tên sách</th>
+            <th>Mã số sách ISBN</th>
+            <th>Tác giả</th>
+            <th>Số lượng hiện có</th>
+            {this.props.isAdmin?(<th>Sửa / <br/>Xóa</th>):(<React.Fragment/>)}
           </tr>
         </thead>
         <tbody>

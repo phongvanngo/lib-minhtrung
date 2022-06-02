@@ -49,8 +49,8 @@ function RenderIssue ({issue,i}) {
             </td>
             <td>
                 {
-        issue.returned?('Returned on '+(new Intl.DateTimeFormat('en-US',{year: 'numeric', month: 'short', day: '2-digit'}).format(new Date( Date.parse(returnDate)))))                    
-               :('Not returned yet')
+        issue.returned?('Đã trả vào '+(new Intl.DateTimeFormat('en-US',{year: 'numeric', month: 'short', day: '2-digit'}).format(new Date( Date.parse(returnDate)))))                    
+               :('Chưa trả')
                 }
             </td>
             <td>
@@ -126,19 +126,19 @@ render(){
         <div className="container mt-6 text-center align-self-center full">
             <div className="row text-center justify-content-center">
             <div className="col-12 heading">
-                <h3>Issue Log</h3>
+                <h3>Nhật ký mượn</h3>
                 <Table striped bordered hover responsive>
         <thead>
            <tr>
-            <th>S.No.</th>
-            <th>Name of Student</th>
-            <th>Roll No.</th>
-            <th>Name of Book</th>
-            <th>ISBN number</th>
-            <th>Issue Date</th>
-            <th>Return Deadline</th>
-            <th>Return status</th> 
-            <th>Fine (in Rs.)</th> 
+            <th>STT</th>
+            <th>Tên người mượn</th>
+            <th>MSSV</th>
+            <th>Tên sách</th>
+            <th>Mã số sách ISBN</th>
+            <th>Ngày mượn</th>
+            <th>Hạn trả</th>
+            <th>Trạng thái</th> 
+            <th>Phí phạt</th> 
            </tr>
         </thead>
         <tbody>
